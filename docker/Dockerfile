@@ -4,6 +4,7 @@ COPY . /home/maven/src
 WORKDIR /home/maven/src
 
 # Build a release artifact.
+RUN cd ..
 RUN  ls -a
 RUN mvn package
 
