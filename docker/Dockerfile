@@ -1,9 +1,7 @@
 FROM maven:3.6-jdk-11 as builder
-
+COPY . /app
 # Copy local code to the container image.
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
 
 # Build a release artifact.
 RUN mvn package
