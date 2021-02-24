@@ -1,5 +1,5 @@
 FROM maven:3.6-jdk-11 as builder
-COPY . /app
+COPY ../. /app
 # Copy local code to the container image.
 WORKDIR /app
 
