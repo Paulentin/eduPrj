@@ -4,6 +4,7 @@ COPY . /home/maven/src
 WORKDIR /home/maven/src
 
 # Build a release artifact.
+RUN  ls -a
 RUN mvn package
 
 FROM openjdk:11
