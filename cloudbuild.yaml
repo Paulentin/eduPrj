@@ -5,5 +5,5 @@
 steps:
   # Build Stage
   - id: 'Build image'
-    name: 'gcr.io/eduprj/docker'
-    args: ['build', '-f', 'Dockerfile', '-t', 'gcr.io/${PROJECT_ID}/eduprj:${SHORT_SHA}', '.']
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-f', 'Dockerfile', '-t', 'gcr.io/subtle-palisade-304316/github.com/paulentin/eduprj:$COMMIT_SHA', '.']
