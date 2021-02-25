@@ -2,8 +2,23 @@
 #docker build \
 #-t gcr.io/subtle-palisade-304316/github.com/paulentin/eduprj:$COMMIT_SHA \
 #.
-steps:
-  # Build Stage
-  - id: 'Build image'
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-f', 'Dockerfile', '-t', 'gcr.io/subtle-palisade-304316/github.com/paulentin/eduprj:$COMMIT_SHA', '.']
+#steps:
+#  # Build Stage
+#  - id: 'Build image'
+#    name: 'gcr.io/cloud-builders/docker'
+#    args: ['build', '-f', 'Dockerfile', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA', '.']
+#  -id: 'Deploy'
+
+  steps:
+    # Build the container image
+    - name: 'gcr.io/cloud-builders/docker'
+      args: [ 'build', '-f', 'Dockerfile', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA', '.' ]
+    # Push the container image to Container Registry
+    - name: 'gcr.io/cloud-builders/docker'
+      args: [ 'push', 'gcr.io/$PROJECT_ID/$IMAGE' ]
+    # Deploy container image to Cloud Run
+    - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+      entrypoint: gcloud
+      args: [ 'run', 'deploy', '$SERVICE-NAME', '--image', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA', '--region', '$_DEPLOY_REGION', '--platform', 'managed' ]
+  images:
+    - 'gcr.io/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
