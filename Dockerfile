@@ -1,5 +1,4 @@
 FROM maven:3.6-jdk-11 as builder
-RUN cd ..
 COPY . /home/maven/src
 # Copy local code to the container image.
 WORKDIR /home/maven/src
