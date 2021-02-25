@@ -15,7 +15,7 @@
       args: [ 'build', '-f', 'Dockerfile', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA', '.' ]
     # Push the container image to Container Registry
     - name: 'gcr.io/cloud-builders/docker'
-      args: [ 'push', 'gcr.io/$PROJECT_ID/$IMAGE' ]
+      args: [ 'push', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA' ]
     # Deploy container image to Cloud Run
     - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
       entrypoint: gcloud
