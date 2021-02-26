@@ -4,10 +4,9 @@ COPY . /home/maven/src
 WORKDIR /home/maven/src
 
 # Build a release artifact.
-RUN  ls -a
 RUN mvn package
 
-FROM openjdk:11
+FROM openjdk:13-jdk-alpine
 COPY --from=builder /home/maven/src/target/eduPrj*.jar /app/eduPrj.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/eduPrj.jar"]
