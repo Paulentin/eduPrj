@@ -1,0 +1,45 @@
+debug: true
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: TRACE
+server:
+  port: 8080
+userNameForGreeting: Checkio
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eduPrjDb
+    username: postgres
+    password: Passw0rd
+#  flyway:
+#    baseline-version: 1
+#    baseline-description: Initial schema
+  springdoc:
+    api-docs:
+      path: /v3/api-docs
+    swagger-ui:
+      path: /swagger-ui/index.html
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: dev
+#  jpa:
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#  datasource:
+#
+#---
