@@ -36,7 +36,6 @@ public class CategoryEntity extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @NotBlank
     @Column(name = "sequence_number")
     private Integer sequenceNumber;
 

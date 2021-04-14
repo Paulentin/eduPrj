@@ -28,14 +28,14 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<GetProductResponse>> getAllProducts() {
-        List<GetProductResponse> variantsByProductId = productService.findAll();
-        return ResponseEntity.ok(variantsByProductId);
+        List<GetProductResponse> products = productService.findAll();
+        return ResponseEntity.ok(products);
     }
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<CreateProductResponse> createProduct(@Valid @RequestBody CreateProductRequest createProductRequest, UriComponentsBuilder uriComponentsBuilder) {
         CreateProductResponse product = productService.createProduct(createProductRequest);
-        UriComponents uriComponents = uriComponentsBuilder.path("products/{id}").buildAndExpand(product.getId());
+        UriComponents uriComponents = uriComponentsBuilder.path("product/{id}").buildAndExpand(product.getId());
         return ResponseEntity.created(uriComponents.toUri()).body(product);
     }
 
