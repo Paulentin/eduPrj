@@ -1,0 +1,12 @@
+# Test-only overrides for the playground exercises. These apply to Spring
+# context based tests (@DataJpaTest etc.) so they run against an in-memory H2
+# database instead of the real Postgres schema used by the graded app, and so
+# Flyway (which only has Postgres-flavoured migrations) doesn't try to run
+# against H2.
+spring:
+  flyway:
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
