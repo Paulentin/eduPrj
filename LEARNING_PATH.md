@@ -1,6 +1,6 @@
-# Learning Path — High-load systems, Multithreading, Spring Security, Reactive Java
+# Learning Path — High-load systems, Multithreading, Spring Security, Reactive Java, DSA
 
-20 hands-on exercises, scaffolded as skeleton classes + failing tests under
+33 hands-on exercises, scaffolded as skeleton classes + failing tests under
 `com.home.zabara.playground`, kept isolated from the graded Product/Category
 CRUD app. Each task's completion signal is its test going green — no manual
 grading needed.
@@ -11,6 +11,7 @@ src/main/java/com/home/zabara/playground/
   highload/      Track B — high-load systems / DB scaling (6 tasks)
   security/      Track C — Spring Security (4 tasks)
   reactive/      Track D — reactive Java, Flux/Mono (3 tasks)
+  dsa/           Track E — data structures & algorithms (13 tasks)
 ```
 
 Every package has its own `README.md` with the theory recap, the interview
@@ -47,9 +48,13 @@ Do the tracks in this order — each one leans on ideas from the previous:
 3. **Track C (Spring Security)** — do C1 → C2 → C3 → C4 in that exact order,
    they build up one shared config incrementally (see
    `playground/security/README.md`).
-4. **Track D (Reactive)** last, and do **D1 first within the track** — it's
-   the direct, measured answer to "why Flux/Mono?" that the rest of the
-   track (and Track A7's thread-pool-sizing exercise) sets up.
+4. **Track D (Reactive)**, and do **D1 first within the track** — it's the
+   direct, measured answer to "why Flux/Mono?" that the rest of the track
+   (and Track A7's thread-pool-sizing exercise) sets up.
+5. **Track E (DSA)** — independent of the other four tracks, and each task
+   within it is independent of the others too; do them in any order, or
+   interleave a couple per day alongside whichever of A-D you're on. Their
+   Big-O requirements are stated in each skeleton's Javadoc.
 
 ## Full task checklist
 
@@ -80,6 +85,21 @@ Do the tracks in this order — each one leans on ideas from the previous:
 - [ ] D1 — Blocking vs. reactive, same workload (the "why?" proof)
 - [ ] D2 — Mono/Flux sandbox endpoints
 - [ ] D3 — Backpressure
+
+**Track E — Data Structures & Algorithms** (`playground/dsa/`) — any order
+- [ ] E1 — Two Sum (HashMap, O(n))
+- [ ] E2 — Longest substring without repeating characters (sliding window)
+- [ ] E3 — Valid parentheses + min-stack
+- [ ] E4 — Linked list: reverse + cycle detection (Floyd's)
+- [ ] E5 — Binary tree: level order + validate BST
+- [ ] E6 — Binary search in a rotated sorted array
+- [ ] E7 — Kth largest element (heap)
+- [ ] E8 — Number of islands (grid BFS/DFS)
+- [ ] E9 — Course schedule (topological sort / cycle detection)
+- [ ] E10 — Coin change (bottom-up DP)
+- [ ] E11 — Merge sort from scratch
+- [ ] E12 — Trie (prefix tree)
+- [ ] E13 — Union-Find (disjoint set)
 
 ## Notes on how this was built
 
